@@ -2,9 +2,7 @@ package com.tensquare.recruit.controller;
 
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
-import com.tensquare.recruit.entity.TbEnterprise;
 import com.tensquare.recruit.entity.TbRecruit;
-import com.tensquare.recruit.service.TbEnterpriseService;
 import com.tensquare.recruit.service.TbRecruitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -46,13 +44,26 @@ public class TbRecruitController {
 
     /**
      * 根据状态2的查询
+     *      查询状态为2并以创建日期降序排序，查询前4条记录
      * @return Result
      */
     @GetMapping("/findSearch/recommend")
-    public Result recommend(){
+    public Result recommend() {
         List<TbRecruit> list =
                 tbRecruitService.findTop4ByStateOrderByCreatetimeDesc("2");
-        return new Result(true,StatusCode.OK,"查询成功",list);
+        return new Result(true, StatusCode.OK, "查询成功", list);
+    }
+
+    /**
+     * 最新职位列表
+     *      查询状态不为0并以创建日期降序排序，查询前12条记录
+     * @return Result
+     */
+    @GetMapping("/findSearch/newList")
+    public Result newList() {
+        List<TbRecruit> list =
+                tbRecruitService.newList("0");
+        return new Result(true, StatusCode.OK, "查询成功", list);
     }
 
     /**
@@ -82,7 +93,7 @@ public class TbRecruitController {
      * 根据ID修改
      *
      * @param tbRecruit 企业
-     * @param id      Id
+     * @param id        Id
      * @return 结果
      */
     @PutMapping(value = "/update/{id}")

@@ -1,6 +1,5 @@
 package com.tensquare.recruit.dao;
 
-import com.tensquare.recruit.entity.TbEnterprise;
 import com.tensquare.recruit.entity.TbRecruit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -17,7 +16,15 @@ public interface TbRecruitDao extends JpaRepository<TbRecruit, String>, JpaSpeci
 
     /**
      * 查询最新职位列表(按创建日期降序排序)
+     * @param state 状态
      * @return  List<TbRecruit>
      */
     List<TbRecruit> findTop4ByStateOrderByCreatetimeDesc(String state);
+
+    /**
+     * 最新职位列表
+     * @param state 状态
+     * @return list
+     */
+    List<TbRecruit> findTop12ByStateNotOrderByCreatetimeDesc(String state);
 }

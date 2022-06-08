@@ -1,8 +1,6 @@
 package com.tensquare.recruit.service;
 
-import com.tensquare.recruit.dao.TbEnterpriseDao;
 import com.tensquare.recruit.dao.TbRecruitDao;
-import com.tensquare.recruit.entity.TbEnterprise;
 import com.tensquare.recruit.entity.TbRecruit;
 import com.tensquare.utils.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,8 +136,17 @@ public class TbRecruitService {
      * @param state 状态
      * @return  List<TbRecruit>
      */
-    public List<TbRecruit> findTop4ByStateOrderByCreatetimeDesc(String
-                                                                      state){
+    public List<TbRecruit> findTop4ByStateOrderByCreatetimeDesc(String state) {
         return tbRecruitDao.findTop4ByStateOrderByCreatetimeDesc(state);
     }
+
+    /**
+     * 最新职位列表
+     * @param state 状态
+     * @return list
+     */
+    public List<TbRecruit> newList(String state) {
+        return tbRecruitDao.findTop12ByStateNotOrderByCreatetimeDesc(state);
+    }
+
 }

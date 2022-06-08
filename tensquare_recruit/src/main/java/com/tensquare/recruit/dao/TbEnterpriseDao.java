@@ -19,5 +19,5 @@ public interface TbEnterpriseDao extends JpaRepository<TbEnterprise, String>, Jp
      * @param ishot ishot 热门状态
      * @return list
      */
-    public List<TbEnterprise> findByIshot(String ishot);
+    List<TbEnterprise> findByIshot(String ishot);
 }
