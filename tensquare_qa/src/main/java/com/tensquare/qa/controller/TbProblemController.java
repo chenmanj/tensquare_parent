@@ -34,7 +34,7 @@ public class TbProblemController {
     }
 
     /**
-     *
+     * 根据标签ID查询最新问题列表
      * @param labelId 标签id
      * @param pageIndex 页码
      * @param pageSize 页大小
@@ -48,6 +48,42 @@ public class TbProblemController {
         PageResult<TbProblem> pageResult = new PageResult<>
                 (pageList.getTotalElements(), pageList.getContent());
         return new Result(true, StatusCode.OK, "查询成功！", pageResult);
+    }
+
+    /**
+     *  根据标签ID查询热门问题列表
+     * @param lableId 标签ID
+     * @param pageIndex 页码
+     * @param pageSize 页大小
+     * @return Result
+     */
+    @PostMapping("/findHotListByLabelId/{labelId}/{pageIndex}/{pageSize}")
+    public Result findHotListByLabelId(@PathVariable String lableId,
+                                       @PathVariable int pageIndex,
+                                       @PathVariable int pageSize) {
+        Page<TbProblem> pageList =
+                tbProblemService.findHotListByLabelId(lableId, pageIndex, pageSize);
+        PageResult<TbProblem> pageResult = new PageResult<>
+                (pageList.getTotalElements(), pageList.getContent());
+        return new Result(true, StatusCode.OK, "查询成功", pageResult);
+    }
+
+    /**
+     *  根据标签ID查询等待回答列表
+     * @param lableId 标签ID
+     * @param pageIndex 页码
+     * @param pageSize 页大小
+     * @return Result
+     */
+    @PostMapping("/findWaitListByLabelId/{labelId}/{pageIndex}/{pageSize}")
+    public Result findWaitListByLabelId(@PathVariable String lableId,
+                                       @PathVariable int pageIndex,
+                                       @PathVariable int pageSize) {
+        Page<TbProblem> pageList =
+                tbProblemService.findWaitListByLabelId(lableId, pageIndex, pageSize);
+        PageResult<TbProblem> pageResult = new PageResult<>
+                (pageList.getTotalElements(), pageList.getContent());
+        return new Result(true, StatusCode.OK, "查询成功", pageResult);
     }
 
     /**

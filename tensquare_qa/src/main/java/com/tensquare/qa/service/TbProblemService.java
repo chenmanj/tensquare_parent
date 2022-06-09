@@ -132,11 +132,11 @@ public class TbProblemService {
     }
 
     /**
-     * 根据标签ID查询问题列表
+     * 根据标签ID查询最新问题列表
      * @param labelId 标签ID
      * @param pageIndex 页码
      * @param pageSize 页大小
-     * @return
+     * @return Page<Problem>
      */
     public Page<TbProblem> findNewListByLabelId(String labelId, int pageIndex, int pageSize) {
 
@@ -145,4 +145,31 @@ public class TbProblemService {
     }
 
 
+    /**
+     * 根据标签ID查询热门问题列表
+     * @param lableId 标签ID
+     * @param pageIndex 页码
+     * @param pageSize 页大小
+     * @return Page<Problem>
+     */
+    public Page<TbProblem> findHotListByLabelId(String lableId,
+                                              int pageIndex,
+                                              int pageSize) {
+        PageRequest pageRequest = PageRequest.of(pageIndex - 1, pageSize);
+        return tbProblemDao.findHotListByLabelId(lableId, pageRequest);
+    }
+
+    /**
+     * 根据标签ID查询等待回答列表
+     * @param lableId 标签ID
+     * @param pageIndex 页码
+     * @param pageSize 页大小
+     * @return Page<Problem>
+     */
+    public Page<TbProblem> findWaitListByLabelId(String lableId,
+                                              int pageIndex,
+                                              int pageSize) {
+        PageRequest pageRequest = PageRequest.of(pageIndex - 1, pageSize);
+        return tbProblemDao.findWaitListByLabelId(lableId, pageRequest);
+    }
 }
