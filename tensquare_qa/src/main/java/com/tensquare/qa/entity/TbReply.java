@@ -24,15 +24,33 @@ public class TbReply implements Serializable {
   @Id
   private String id;
 
+  /**
+   * 问题ID
+   */
   private String problemid;
 
+  /**
+   * 回答内容
+   */
   private String content;
 
+  /**
+   * 回答日期
+   */
   private Date createtime;
 
+  /**
+   * 更新日期
+   */
   private Date updatetime;
 
+  /**
+   * 回答人ID
+   */
   private String userid;
 
+  /**
+   * 回答人昵称
+   */
   private String nickname;
 }

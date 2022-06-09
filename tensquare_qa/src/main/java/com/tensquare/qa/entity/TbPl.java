@@ -22,9 +22,15 @@ import java.io.Serializable;
 @Table(name = "tb_pl")
 public class TbPl implements Serializable {
 
+  /**
+   * 问题ID
+   */
   @Id
   private String problemid;
 
+  /**
+   * 标签ID
+   */
   @Id
   private String labelid;
 }

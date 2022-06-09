@@ -10,9 +10,14 @@ import java.util.List;
  */
 public class PageResult<T> {
 
-    // 总数
+    /**
+     * 总数
+     */
     private Long total;
-    // 结果集
+
+    /**
+     * 结果集
+     */
     private List<T> rows;
 
     public PageResult(Long total, List<T> rows) {

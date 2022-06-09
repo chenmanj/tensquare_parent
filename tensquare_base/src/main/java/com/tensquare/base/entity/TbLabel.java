@@ -26,16 +26,31 @@ import java.util.Objects;
 public class TbLabel implements Serializable {
     @Id
     private String id;
-    //标签名称
+
+    /**
+     * 标签名称
+     */
     private String labelname;
-    //状态
+
+    /**
+     * 状态
+     */
     private String state;
-    //使用数量
-    private long count;
-    //关注数
+
+    /**
+     * 使用数量
+     */
+    private Integer count;
+
+    /**
+     * 关注数
+     */
     private String recommend;
-    //是否推荐
-    private long fans;
+
+    /**
+     * 是否推荐
+     */
+    private Integer fans;
 
     @Override
     public boolean equals(Object o) {

@@ -25,28 +25,64 @@ public class TbProblem implements Serializable {
   @Id
   private String id;
 
+  /**
+   * 问题标题
+   */
   private String title;
 
+  /**
+   * 问题内容
+   */
   private String content;
 
+  /**
+   * 发布日期
+   */
   private Date createtime;
 
+  /**
+   * 更新日期
+   */
   private Date updatetime;
 
+  /**
+   * 发布人ID
+   */
   private String userid;
 
+  /**
+   * 发布人昵称
+   */
   private String nickname;
 
-  private long visits;
+  /**
+   * 浏览量
+   */
+  private Integer visits;
 
-  private long thumbup;
+  /**
+   * 点赞数
+   */
+  private Integer thumbup;
 
-  private long reply;
+  /**
+   * 回复数
+   */
+  private Integer reply;
 
+  /**
+   * 是否解决
+   */
   private String solve;
 
+  /**
+   * 最新回复人
+   */
   private String replyname;
 
+  /**
+   * 最新回复时间
+   */
   private Date replytime;
 
 }

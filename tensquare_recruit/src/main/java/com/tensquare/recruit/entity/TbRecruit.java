@@ -20,18 +20,70 @@ public class TbRecruit implements Serializable {
 
   @Id
   private String id;
+
+  /**
+   * 招聘职位
+   */
   private String jobname;
+
+  /**
+   * 薪资范围
+   */
   private String salary;
+
+  /**
+   * 经验要求
+   */
   private String condition;
+
+  /**
+   * 学历要求
+   */
   private String education;
+
+  /**
+   * 任职方式
+   */
   private String type;
+
+  /**
+   * 办公地址
+   */
   private String address;
+
+  /**
+   * 企业ID
+   */
   private String eid;
+
+  /**
+   * 发布日期
+   */
   private Date createtime;
+
+  /**
+   * 状态（0:关闭 1:开启 2:推荐）
+   */
   private String state;
+
+  /**
+   * 原网址
+   */
   private String url;
+
+  /**
+   * 标签
+   */
   private String label;
+
+  /**
+   * 职位描述
+   */
   private String content1;
+
+  /**
+   * 职位要求
+   */
   private String content2;
 
 
